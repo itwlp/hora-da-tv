@@ -28,6 +28,6 @@ removida em 07/11/2026: o dono do canal proíbe incorporação (erro 150 do IFra
 
 ## Onde o resto mora
 
-- Painel "Placar Patati Patatá" (artifact do Claude): guarda o histórico do Takeout e espelha este plano na
+- Painel "Momento TV" (artifact do Claude; antes "Placar Patati Patatá"): guarda o histórico do Takeout e espelha este plano na
   seção "Hoje na TV" (lê o `plano.json` desta página).
 - Skill `patati-curadoria` (repo itwlp/claude-skills): o script e as regras de escolha.
