@@ -19,10 +19,10 @@ sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo 
 - `dados\`, `saida\`, `logs\`: histórico exportado do painel, saída do script e um CSV por execução. Ignorados
   pelo git; nada disso vai ao GitHub.
 
-## Arquivos legados (tentativa de player próprio, 27/10/2026)
+## Histórico
 
-`atualizar-patati-tv.ps1`, `config.json` e `playlist.json` são do player embutido que não funcionou: o dono do
-canal proíbe incorporação (erro 150 do IFrame API). Ficam aqui só como registro; nada os usa.
+Em 27/10/2026 houve uma tentativa de player próprio (`atualizar-patati-tv.ps1`, `config.json`, `playlist.json`),
+removida em 07/11/2026: o dono do canal proíbe incorporação (erro 150 do IFrame API). Está no histórico do git.
 
 ## Onde o resto mora
 
