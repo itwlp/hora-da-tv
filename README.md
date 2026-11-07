@@ -18,7 +18,7 @@ sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo 
   toda segunda 07:00, ou assim que o notebook ligar). Chama `~\.claude\skills\patati-curadoria\scripts\curadoria.py`
   com o histórico local em `dados\` e o `plano.json` anterior (continuidade do rodízio), grava `plano.json` e faz
   commit e push. Nunca baixa vídeo: o yt-dlp só lê metadados do canal.
-  À mão: `& $HOME\dev\patati-tv\atualizar-plano.ps1 -Simular` mostra sem gravar; `-SemPush` grava sem publicar.
+  À mão: `& $HOME\dev\hora-da-tv\atualizar-plano.ps1 -Simular` mostra sem gravar; `-SemPush` grava sem publicar.
 - `dados\`, `saida\`, `logs\`: histórico exportado do painel, saída do script e um CSV por execução. Ignorados
   pelo git; nada disso vai ao GitHub.
 
