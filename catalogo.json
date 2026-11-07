@@ -1,5 +1,5 @@
 {
-  "_ajuda": "Catálogo do Momento TV: vídeos escolhidos à mão em 07/11/2026 com critério Montessori (realidade antes de fantasia, ritmo lento, português ou sem falas, 0 a 3 anos). É o núcleo do rodízio: curadoria.py roda com --sem-canal --extras catalogo.json. seg = duração em segundos. Para incluir ou tirar um vídeo, edite aqui; o plano novo sai na segunda (ou rode atualizar-plano.ps1).",
+  "_ajuda": "Catálogo do Momento TV: vídeos escolhidos à mão em 07/11/2026 com critério Montessori (realidade antes de fantasia, ritmo lento, português, inglês ou sem falas, 0 a 3 anos). É o núcleo do rodízio: curadoria.py roda com --sem-canal --extras catalogo.json. seg = duração em segundos. Para incluir ou tirar um vídeo, edite aqui; o plano novo sai na segunda (ou rode atualizar-plano.ps1).",
   "videos": [
     {"id": "Me8qspooMfc", "seg": 1326, "canal": "Voa Passarinho", "title": "Visitando uma Fazendinha de Verdade | Animais da Fazenda para Bebês"},
     {"id": "XbMg0uAOplU", "seg": 760, "canal": "Voa Passarinho", "title": "Brincando na Fazendinha para Bebês"},
