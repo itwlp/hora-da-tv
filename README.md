@@ -1,17 +1,31 @@
-# TV do Patati
+# Patati de hoje
 
-Página para os meninos assistirem Patati Patatá na TV sem menu, sem busca e sem aprovação no YouTube Kids:
-só os vídeos da faixa escolhida, 5 por dia em rodízio, e trava ao fim.
+Página pública (https://itwlp.github.io/patati-tv/) com o pacote de vídeos do Patati Patatá do dia para a TV
+dos meninos: cerca de 1 hora, vídeos de 10 a 20 minutos do canal oficial, em rodízio semanal. Um toque no botão
+"Tocar o pacote de hoje" abre no app YouTube uma fila temporária (`watch_videos?video_ids=...`) que toca em
+sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo celular transmitindo para a TV.
 
-- `index.html`: o player. Lê `playlist.json`, escolhe os vídeos do dia (janela que avança 5 posições por dia,
-  todos entram no rodízio), toca em sequência e mostra "Acabou por hoje" ao fim. O limite diário fica no
-  aparelho (localStorage). Modo pais: `?pai=1` na URL ou 5 toques no título em 3 s; dá botão Pular e Liberar.
-- `playlist.json`: gerado pelo script. Não editar à mão.
-- `config.json`: canais, faixa de duração (segundos), quantidade por dia e ids excluídos. Editar aqui.
-- `atualizar-patati-tv.ps1`: lista os canais com yt-dlp (só metadados, nunca baixa vídeo), filtra, grava a
-  playlist e publica (commit + push). Roda todo dia pelo Agendador do Windows e também à mão:
-  `& $HOME\dev\patati-tv\atualizar-patati-tv.ps1 -Simular` mostra sem gravar.
-- `logs\`: um CSV por dia (ignorado pelo git).
+## Arquivos em uso
 
-Publicado em GitHub Pages. Na TV: abrir a página no navegador da TV ou transmitir a aba do Chrome
-(Chromecast). O primeiro toque em "Começar" é dos pais; depois os vídeos seguem sozinhos.
+- `index.html`: a página. Lê `plano.json`, mostra o dia de hoje (ou o próximo dia com plano), o botão do
+  pacote e os próximos dias. Tema sempre claro, paleta primária para criança de 2 anos, design derivado do
+  sistema Noa Vale. Se o plano acabou, avisa que ele é renovado toda semana.
+- `plano.json`: gerado pelo script. Não editar à mão.
+- `atualizar-plano.ps1`: motor. Roda no Windows pelo Agendador de Tarefas ("Patati TV - atualizar plano",
+  toda segunda 07:00, ou assim que o notebook ligar). Chama `~\.claude\skills\patati-curadoria\scripts\curadoria.py`
+  com o histórico local em `dados\` e o `plano.json` anterior (continuidade do rodízio), grava `plano.json` e faz
+  commit e push. Nunca baixa vídeo: o yt-dlp só lê metadados do canal.
+  À mão: `& $HOME\dev\patati-tv\atualizar-plano.ps1 -Simular` mostra sem gravar; `-SemPush` grava sem publicar.
+- `dados\`, `saida\`, `logs\`: histórico exportado do painel, saída do script e um CSV por execução. Ignorados
+  pelo git; nada disso vai ao GitHub.
+
+## Arquivos legados (tentativa de player próprio, 27/10/2026)
+
+`atualizar-patati-tv.ps1`, `config.json` e `playlist.json` são do player embutido que não funcionou: o dono do
+canal proíbe incorporação (erro 150 do IFrame API). Ficam aqui só como registro; nada os usa.
+
+## Onde o resto mora
+
+- Painel "Placar Patati Patatá" (artifact do Claude): guarda o histórico do Takeout e espelha este plano na
+  seção "Hoje na TV" (lê o `plano.json` desta página).
+- Skill `patati-curadoria` (repo itwlp/claude-skills): o script e as regras de escolha.
