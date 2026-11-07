@@ -322,7 +322,7 @@
     $('#data-pill').hidden = false;
     $('#tocar').href = pacote(d0);
     $('#tocar-txt').textContent = 'Tocar o pacote de ' + (ehHoje ? 'hoje' : nome(d0.data));
-    $('#lista').innerHTML = d0.videos.map((v, i) => `<li style="--i:${i}"><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(curto(v.title))}</a> <span class="dur">${esc(v.duracao)}</span></li>`).join('');
+    $('#lista').innerHTML = d0.videos.map((v, i) => `<li style="--i:${i}"><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(curto(v.title))}</a>${v.canal ? ' <span class="meta">· ' + esc(v.canal) + '</span>' : ''} <span class="dur">${esc(v.duracao)}</span></li>`).join('');
     $('#hoje').hidden = false;
     montaRoda(d0.videos);
     const resto = futuros.slice(1);
@@ -332,7 +332,7 @@
     }
     const ultimo = dias[dias.length-1].data;
     if(ultimo < hoje){ $('#aviso').textContent = 'O plano acabou em ' + dm(ultimo) + '. Ele é renovado toda semana; se ficou parado, o notebook estava desligado.'; $('#aviso').hidden = false; }
-    $('#rodape').textContent = 'Plano gerado em ' + String(p.geradoEm || '').replace('T', ' ').slice(0, 16) + ' · meta ' + (p.metaMin || 60) + ' min por dia · vídeos de ' + (p.faixa || '10-20 min');
+    $('#rodape').textContent = 'Plano gerado em ' + String(p.geradoEm || '').replace('T', ' ').slice(0, 16) + ' · meta ' + (p.metaMin || 60) + ' min por dia · vídeos de ' + (p.faixa || '10-20 min') + ' do Patati' + (dias.some(d => (d.videos || []).some(v => v.canal)) ? ' e extras escolhidos' : '');
   }).catch(() => { $('#sub').textContent = 'Não consegui carregar o plano. Confira a internet e recarregue.'; });
 })();
 </script>

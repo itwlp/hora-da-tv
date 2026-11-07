@@ -1,0 +1,11 @@
+{
+  "_ajuda": "Vídeos de fora do canal Patati Patatá, escolhidos à mão em 07/11/2026 (curadoria Montessori: realidade, ritmo lento, português). Lido por curadoria.py via --extras. seg = duração em segundos.",
+  "videos": [
+    {"id": "Me8qspooMfc", "seg": 1325, "canal": "Voa Passarinho", "title": "Visitando uma Fazendinha de Verdade | Animais da Fazenda para Bebês"},
+    {"id": "-EWixpkMbjE", "seg": 618, "canal": "Canal Caipira", "title": "Animais da Fazenda - Nome e som dos Animais da Fazenda"},
+    {"id": "fpRCr-MVINs", "seg": 940, "canal": "Quintal da Cultura", "title": "O que vocês fazem quando estão cansados?"},
+    {"id": "TC3MLGthUdg", "seg": 405, "canal": "Sarah e Pato", "title": "A Aventura Lenta de Sarah e Pato com a Tartaruga"},
+    {"id": "he5fOv3SOds", "seg": 507, "canal": "The Very Small Creatures", "title": "Special Ball / Noisy / Sticky (3 episódios, sem falas)"},
+    {"id": "1IVHsvPqEkA", "seg": 1812, "canal": "Palavra Cantada", "title": "Palavra Cantada | Coletânea 30 minutos para Brincar"}
+  ]
+}

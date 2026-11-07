@@ -11,6 +11,8 @@ sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo 
   pacote e os próximos dias. Tema sempre claro, paleta primária para criança de 2 anos, design derivado do
   sistema Noa Vale. Se o plano acabou, avisa que ele é renovado toda semana.
 - `plano.json`: gerado pelo script. Não editar à mão.
+- `extras.json`: vídeos de fora do canal escolhidos à mão (id, título, duração, canal). Entram no rodízio sem filtro de
+  duração, no máximo 2 por dia. Editar aqui para incluir ou tirar um extra.
 - `atualizar-plano.ps1`: motor. Roda no Windows pelo Agendador de Tarefas ("Patati TV - atualizar plano",
   toda segunda 07:00, ou assim que o notebook ligar). Chama `~\.claude\skills\patati-curadoria\scripts\curadoria.py`
   com o histórico local em `dados\` e o `plano.json` anterior (continuidade do rodízio), grava `plano.json` e faz
