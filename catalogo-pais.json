@@ -1,5 +1,5 @@
 {
- "_ajuda": "Catálogo \"Para os pais\" do Momento TV: vídeos didáticos para adultos sobre Montessori, Emmi Pikler e Reggio Emilia, escolhidos à mão em 07/11/2026 (mesma lista da aba Para os pais do painel). curadoria.py roda com --sem-canal --extras catalogo-pais.json --meta-min 20. seg = segundos; tema = abordagem.",
+ "_ajuda": "Catálogo \"Para os pais\" do Momento TV: vídeos didáticos para adultos sobre Montessori, Emmi Pikler e Reggio Emilia, escolhidos à mão em 07/11/2026 (mesma lista da aba Para os pais do painel). curadoria.py roda com --sem-canal --extras catalogo-pais.json --meta-min 20. seg = segundos; tema = abordagem. Vídeos acima de 28 min não cabem no pacote (meta 20 ± 8) e ficam só no painel: por isso a live do Acolher Instituto (40 min) não está aqui.",
  "videos": [
   {
    "id": "XSH8z20G6g4",
@@ -56,14 +56,6 @@
    "tema": "Emmi Pikler",
    "idioma": "pt",
    "title": "A abordagem pedagógica de Emmi Pikler: movimentos livres e a pedagogia do afeto"
-  },
-  {
-   "id": "ggDBHJKD55w",
-   "seg": 2440,
-   "canal": "Acolher Instituto",
-   "tema": "Emmi Pikler",
-   "idioma": "pt",
-   "title": "Brincar sob a perspectiva da abordagem Emmi Pikler"
   },
   {
    "id": "w4QhVU-84MA",
