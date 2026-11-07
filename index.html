@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Patati de hoje</title>
+<title>Momento TV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap">
 <style>
@@ -187,10 +187,10 @@
 <body>
 <div class="bg" aria-hidden="true"><i></i><i></i><i></i><b class="sol"></b><b class="nuvem n1"></b><b class="nuvem n2"></b><b class="balao"></b><b class="flor"></b></div>
 <header class="site-header">
-  <a class="brand" href="./" aria-label="Patati TV, início">
-    <span class="brand-mark">pt<span class="dot">.</span></span>
+  <a class="brand" href="./" aria-label="Momento TV, início">
+    <span class="brand-mark">mt<span class="dot">.</span></span>
     <span class="brand-text">
-      <span class="brand-name">Patati TV</span>
+      <span class="brand-name">Momento TV</span>
       <span class="brand-role mono">PLANO DA SEMANA</span>
     </span>
   </a>
@@ -201,7 +201,7 @@
   <section class="hero reveal">
     <p class="ghost" aria-hidden="true">Momento TV</p>
     <p class="mono tiny"><span class="accent">HOJE NA TV</span> / 1 HORA, SEM TRABALHO</p>
-    <h1 id="titulo">Patati de <em>hoje</em></h1>
+    <h1 id="titulo">Momento TV de <em>hoje</em></h1>
     <p class="sub" id="sub">Carregando o plano…</p>
     <div class="scatter" aria-hidden="true"><span class="toy t1"></span><span class="toy t2"></span><span class="toy t3"></span><span class="toy t4"></span></div>
   </section>
@@ -316,7 +316,7 @@
     const futuros = dias.filter(d => d.data >= hoje);
     const d0 = futuros[0] || dias[dias.length-1];
     const ehHoje = d0.data === hoje;
-    $('#titulo').innerHTML = 'Patati de <em>' + (ehHoje ? 'hoje' : esc(nome(d0.data))) + '</em>';
+    $('#titulo').innerHTML = 'Momento TV de <em>' + (ehHoje ? 'hoje' : esc(nome(d0.data))) + '</em>';
     $('#sub').textContent = nome(d0.data) + ', ' + dm(d0.data) + ' · ' + d0.videos.length + ' vídeos · ' + d0.total_min + ' min';
     $('#data-pill').textContent = dm(d0.data) + ' · ' + d0.total_min + ' MIN';
     $('#data-pill').hidden = false;
@@ -332,7 +332,7 @@
     }
     const ultimo = dias[dias.length-1].data;
     if(ultimo < hoje){ $('#aviso').textContent = 'O plano acabou em ' + dm(ultimo) + '. Ele é renovado toda semana; se ficou parado, o notebook estava desligado.'; $('#aviso').hidden = false; }
-    $('#rodape').textContent = 'Plano gerado em ' + String(p.geradoEm || '').replace('T', ' ').slice(0, 16) + ' · meta ' + (p.metaMin || 60) + ' min por dia · vídeos de ' + (p.faixa || '10-20 min') + ' do Patati' + (dias.some(d => (d.videos || []).some(v => v.canal)) ? ' e extras escolhidos' : '');
+    $('#rodape').textContent = 'Plano gerado em ' + String(p.geradoEm || '').replace('T', ' ').slice(0, 16) + ' · meta ' + (p.metaMin || 60) + ' min por dia · vídeos de ' + (p.faixa || '10-20 min') + (dias.some(d => (d.videos || []).some(v => v.canal)) ? ' e extras escolhidos' : '');
   }).catch(() => { $('#sub').textContent = 'Não consegui carregar o plano. Confira a internet e recarregue.'; });
 })();
 </script>

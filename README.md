@@ -1,6 +1,6 @@
-# Patati de hoje
+# Momento TV
 
-Página pública (https://itwlp.github.io/patati-tv/) com o pacote de vídeos do Patati Patatá do dia para a TV
+Página pública "Momento TV" (https://itwlp.github.io/patati-tv/) com o pacote de vídeos do dia, Patati Patatá e extras, para a TV
 dos meninos: cerca de 1 hora, vídeos de 10 a 20 minutos do canal oficial, em rodízio semanal. Um toque no botão
 "Tocar o pacote de hoje" abre no app YouTube uma fila temporária (`watch_videos?video_ids=...`) que toca em
 sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo celular transmitindo para a TV.
