@@ -332,7 +332,7 @@
     }
     const ultimo = dias[dias.length-1].data;
     if(ultimo < hoje){ $('#aviso').textContent = 'O plano acabou em ' + dm(ultimo) + '. Ele é renovado toda semana; se ficou parado, o notebook estava desligado.'; $('#aviso').hidden = false; }
-    $('#rodape').textContent = 'Plano gerado em ' + String(p.geradoEm || '').replace('T', ' ').slice(0, 16) + ' · meta ' + (p.metaMin || 60) + ' min por dia · vídeos de ' + (p.faixa || '10-20 min') + (dias.some(d => (d.videos || []).some(v => v.canal)) ? ' e extras escolhidos' : '');
+    $('#rodape').textContent = 'Plano gerado em ' + String(p.geradoEm || '').replace('T', ' ').slice(0, 16) + ' · meta ' + (p.metaMin || 60) + ' min por dia · ' + (p.faixa || 'catálogo escolhido à mão');
   }).catch(() => { $('#sub').textContent = 'Não consegui carregar o plano. Confira a internet e recarregue.'; });
 })();
 </script>

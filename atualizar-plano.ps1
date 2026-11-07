@@ -9,7 +9,8 @@
   para plano.json e, se mudou, faz commit e push. Registra tudo em logs\log-plano-<data>.csv.
 
   O plano.json anterior é passado ao script (--anterior) para o rodízio continuar de onde parou.
-  extras.json (vídeos de fora do canal, escolhidos à mão) entra no pool via --extras.
+  Desde 07/11/2026 o núcleo é catalogo.json (vídeos escolhidos à mão, critério Montessori), com --sem-canal:
+  o canal Patati Patatá não é mais lido.
 
   Para atualizar o histórico: exporte de novo as coleções do painel para dados\ (ver SKILL.md).
   Sem histórico novo o plano ainda funciona; só o ranking por afinidade fica um pouco defasado.
@@ -40,7 +41,7 @@ $script = Join-Path $HOME '.claude\skills\patati-curadoria\scripts\curadoria.py'
 $dados = Join-Path $raiz 'dados'
 $saida = Join-Path $raiz 'saida'
 $destino = Join-Path $raiz 'plano.json'
-$extras = Join-Path $raiz 'extras.json'
+$extras = Join-Path $raiz 'catalogo.json'
 
 try {
     $env:PATH = [Environment]::GetEnvironmentVariable('PATH', 'User') + ';' + [Environment]::GetEnvironmentVariable('PATH', 'Machine')
@@ -51,7 +52,7 @@ try {
     if (-not (Test-Path -LiteralPath $dados)) { New-Item -ItemType Directory -Path $dados -Force | Out-Null; Add-Registro 'dados' 'criar' 'AVISO' 'sem histórico local; o plano sai sem ranking por afinidade' }
 
     $hoje = Get-Date -Format 'yyyy-MM-dd'
-    $out = & $py.Source -X utf8 $script --historico $dados --saida $saida --dias $Dias --meta-min 60 --faixa-min 10 --faixa-max 20 --inicio $hoje --anterior $destino --extras $extras 2>&1
+    $out = & $py.Source -X utf8 $script --historico $dados --saida $saida --dias $Dias --meta-min 60 --inicio $hoje --anterior $destino --extras $extras --sem-canal 2>&1
     if ($LASTEXITCODE -ne 0) { throw "curadoria.py saiu com código ${LASTEXITCODE}: $(($out | Select-Object -Last 3) -join ' ')" }
     $novo = Join-Path $saida 'painel-plano.json'
     $p = Get-Content -LiteralPath $novo -Raw -Encoding UTF8 | ConvertFrom-Json

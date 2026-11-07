@@ -1,7 +1,7 @@
 # Momento TV
 
-Página pública "Momento TV" (https://itwlp.github.io/patati-tv/) com o pacote de vídeos do dia, Patati Patatá e extras, para a TV
-dos meninos: cerca de 1 hora, vídeos de 10 a 20 minutos do canal oficial, em rodízio semanal. Um toque no botão
+Página pública "Momento TV" (https://itwlp.github.io/patati-tv/) com o pacote de vídeos do dia, de um catálogo escolhido à mão, para a TV
+dos meninos: cerca de 1 hora por dia, vídeos de 5 a 33 minutos de 7 canais avaliados (critério Montessori), em rodízio semanal. Um toque no botão
 "Tocar o pacote de hoje" abre no app YouTube uma fila temporária (`watch_videos?video_ids=...`) que toca em
 sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo celular transmitindo para a TV.
 
@@ -11,8 +11,9 @@ sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo 
   pacote e os próximos dias. Tema sempre claro, paleta primária para criança de 2 anos, design derivado do
   sistema Noa Vale. Se o plano acabou, avisa que ele é renovado toda semana.
 - `plano.json`: gerado pelo script. Não editar à mão.
-- `extras.json`: vídeos de fora do canal escolhidos à mão (id, título, duração, canal). Entram no rodízio sem filtro de
-  duração, no máximo 2 por dia. Editar aqui para incluir ou tirar um extra.
+- `catalogo.json`: o catálogo inteiro (id, título, duração, canal), escolhido à mão com critério Montessori. É o núcleo do
+  rodízio desde 07/11/2026; o canal Patati Patatá não é mais lido. No máximo 2 vídeos do mesmo canal por dia. Editar
+  aqui para incluir ou tirar um vídeo.
 - `atualizar-plano.ps1`: motor. Roda no Windows pelo Agendador de Tarefas ("Patati TV - atualizar plano",
   toda segunda 07:00, ou assim que o notebook ligar). Chama `~\.claude\skills\patati-curadoria\scripts\curadoria.py`
   com o histórico local em `dados\` e o `plano.json` anterior (continuidade do rodízio), grava `plano.json` e faz
