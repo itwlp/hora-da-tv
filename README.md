@@ -15,7 +15,7 @@ sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo 
   rodízio desde 07/11/2026; o canal Patati Patatá não é mais lido. No máximo 2 vídeos do mesmo canal por dia. Editar
   aqui para incluir ou tirar um vídeo.
 - `atualizar-plano.ps1`: motor. Roda no Windows pelo Agendador de Tarefas ("Patati TV - atualizar plano",
-  toda segunda 07:00, ou assim que o notebook ligar). Chama `~\.claude\skills\patati-curadoria\scripts\curadoria.py`
+  toda segunda 07:00, ou assim que o notebook ligar). Chama `~\.claude\skills\momento-tv\scripts\curadoria.py`
   com o histórico local em `dados\` e o `plano.json` anterior (continuidade do rodízio), grava `plano.json` e faz
   commit e push. Nunca baixa vídeo: o yt-dlp só lê metadados do canal.
   À mão: `& $HOME\dev\hora-da-tv\atualizar-plano.ps1 -Simular` mostra sem gravar; `-SemPush` grava sem publicar.
@@ -31,4 +31,4 @@ removida em 07/11/2026: o dono do canal proíbe incorporação (erro 150 do IFra
 
 - Painel "Momento TV" (artifact do Claude; antes "Placar Patati Patatá"): guarda o histórico do Takeout e espelha este plano na
   seção "Hoje na TV" (lê o `plano.json` desta página).
-- Skill `patati-curadoria` (repo itwlp/claude-skills): o script e as regras de escolha.
+- Skill `momento-tv` (repo itwlp/claude-skills): o script e as regras de escolha.

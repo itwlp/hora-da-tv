@@ -4,7 +4,7 @@
   Renova o plano semanal de Patati Patatá e publica em https://itwlp.github.io/hora-da-tv/.
 
 .DESCRIPTION
-  Roda no Windows do notebook (sem o app Claude, sem sandbox): chama a skill patati-curadoria
+  Roda no Windows do notebook (sem o app Claude, sem sandbox): chama a skill momento-tv
   (curadoria.py) com o histórico guardado em dados\ (local, nunca vai ao GitHub), copia o plano
   para plano.json e, se mudou, faz commit e push. Registra tudo em logs\log-plano-<data>.csv.
 
@@ -37,7 +37,7 @@ function Add-Registro { param([string]$Item, [string]$Acao, [string]$Situacao, [
     Write-Output ("{0,-9} {1,-10} {2}  {3}" -f $Situacao, $Acao, $Item, $Detalhe) }
 
 $raiz = $PSScriptRoot
-$script = Join-Path $HOME '.claude\skills\patati-curadoria\scripts\curadoria.py'
+$script = Join-Path $HOME '.claude\skills\momento-tv\scripts\curadoria.py'
 $dados = Join-Path $raiz 'dados'
 $saida = Join-Path $raiz 'saida'
 $destino = Join-Path $raiz 'plano.json'
