@@ -1,6 +1,6 @@
 # Momento TV
 
-Página pública "Momento TV" (https://itwlp.github.io/patati-tv/) com o pacote de vídeos do dia, de um catálogo escolhido à mão, para a TV
+Página pública "Momento TV" (https://itwlp.github.io/hora-da-tv/) com o pacote de vídeos do dia, de um catálogo escolhido à mão, para a TV
 dos meninos: cerca de 1 hora por dia, vídeos de 5 a 33 minutos de 7 canais avaliados (critério Montessori), em rodízio semanal. Um toque no botão
 "Tocar o pacote de hoje" abre no app YouTube uma fila temporária (`watch_videos?video_ids=...`) que toca em
 sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo celular transmitindo para a TV.

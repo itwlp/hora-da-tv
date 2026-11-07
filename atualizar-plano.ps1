@@ -1,7 +1,7 @@
 ﻿#Requires -Version 7.0
 <#
 .SYNOPSIS
-  Renova o plano semanal de Patati Patatá e publica em https://itwlp.github.io/patati-tv/.
+  Renova o plano semanal de Patati Patatá e publica em https://itwlp.github.io/hora-da-tv/.
 
 .DESCRIPTION
   Roda no Windows do notebook (sem o app Claude, sem sandbox): chama a skill patati-curadoria
