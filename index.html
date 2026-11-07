@@ -181,6 +181,9 @@
   #proximos{--ry:-14deg;--rz:4deg}
   @keyframes entra3d{from{opacity:0;transform:perspective(900px) rotateY(var(--ry)) rotateZ(var(--rz)) translateY(34px)}}
   @media (prefers-reduced-motion:reduce){.sol::before,.nuvem,.balao,.flor,.brinq,.brinq.gira,.tcard.reveal.in{animation:none}.balao{bottom:12%}}
+  .abas{display:flex;gap:4px;padding:4px;border-radius:12px;background:var(--paper);border:1px solid var(--line)}
+  .abas a{padding:6px 12px;border-radius:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+  .abas a[aria-current="page"]{background:var(--ink);color:#fff}
   .site-footer{padding:20px var(--gutter) 28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted)}
 </style>
 </head>
@@ -194,6 +197,10 @@
       <span class="brand-role mono">PLANO DA SEMANA</span>
     </span>
   </a>
+  <nav class="abas" aria-label="Seções">
+    <a href="./" aria-current="page">Meninos</a>
+    <a href="./pais.html">Para os pais</a>
+  </nav>
   <span class="pill mono" id="data-pill" hidden></span>
 </header>
 
@@ -241,7 +248,6 @@
 
 <footer class="site-footer">
   <p class="mono tiny" id="rodape"></p>
-  <a class="mono tiny" style="color:inherit" href="https://claude.ai/artifact/XzqS7mqzaHzZkBcvkxbw5g#pais" target="_blank" rel="noopener">Para os pais</a>
 </footer>
 <script>
 (function(){

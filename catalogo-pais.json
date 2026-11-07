@@ -1,0 +1,157 @@
+{
+ "_ajuda": "Catálogo \"Para os pais\" do Momento TV: vídeos didáticos para adultos sobre Montessori, Emmi Pikler e Reggio Emilia, escolhidos à mão em 07/11/2026 (mesma lista da aba Para os pais do painel). curadoria.py roda com --sem-canal --extras catalogo-pais.json --meta-min 20. seg = segundos; tema = abordagem.",
+ "videos": [
+  {
+   "id": "XSH8z20G6g4",
+   "seg": 805,
+   "canal": "Tara Willoughby",
+   "tema": "Montessori",
+   "idioma": "en",
+   "title": "2 Year Old Montessori Daily Routine"
+  },
+  {
+   "id": "eqee6-cSxTQ",
+   "seg": 389,
+   "canal": "Montessori com Afeto",
+   "tema": "Montessori",
+   "idioma": "pt",
+   "title": "Atividades Montessori 2 anos - Vida Prática"
+  },
+  {
+   "id": "okG9L8wuSpE",
+   "seg": 340,
+   "canal": "Alma Montessori",
+   "tema": "Montessori",
+   "idioma": "es",
+   "title": "Cómo aplicar Montessori en casa de 0 a 3 años"
+  },
+  {
+   "id": "E-efLqLsUgU",
+   "seg": 854,
+   "canal": "Home and on the Way",
+   "tema": "Montessori",
+   "idioma": "en",
+   "title": "Montessori at Home: Activities for 2-2.5 Year Olds [24-30 Months]"
+  },
+  {
+   "id": "XTLP5kviaUM",
+   "seg": 438,
+   "canal": "Instituto Claro",
+   "tema": "Montessori",
+   "idioma": "pt",
+   "title": "Métodos pedagógicos: o método Montessori"
+  },
+  {
+   "id": "uxl0ASYZnAM",
+   "seg": 384,
+   "canal": "Brasil Montessori - Ahuma",
+   "tema": "Montessori",
+   "idioma": "pt",
+   "title": "O que é o Método Montessori? Um método de ensino, conceitos básicos"
+  },
+  {
+   "id": "x9XRJFLZ-5k",
+   "seg": 990,
+   "canal": "M de Carol",
+   "tema": "Emmi Pikler",
+   "idioma": "pt",
+   "title": "A abordagem pedagógica de Emmi Pikler: movimentos livres e a pedagogia do afeto"
+  },
+  {
+   "id": "ggDBHJKD55w",
+   "seg": 2440,
+   "canal": "Acolher Instituto",
+   "tema": "Emmi Pikler",
+   "idioma": "pt",
+   "title": "Brincar sob a perspectiva da abordagem Emmi Pikler"
+  },
+  {
+   "id": "w4QhVU-84MA",
+   "seg": 385,
+   "canal": "Carolina Muñoz Martínez",
+   "tema": "Emmi Pikler",
+   "idioma": "es",
+   "title": "Emmi Pikler: moverse en libertad"
+  },
+  {
+   "id": "-13bXDwjZMI",
+   "seg": 1441,
+   "canal": "Paralapracá",
+   "tema": "Emmi Pikler",
+   "idioma": "es",
+   "title": "Moverse en libertad - Emmi Pikler - Institut Lóczy"
+  },
+  {
+   "id": "tG5ZDoUN0BE",
+   "seg": 312,
+   "canal": "Ainhoa de Cogiendo Impulso",
+   "tema": "Emmi Pikler",
+   "idioma": "es",
+   "title": "Movimiento libre del bebé. Un acercamiento a Emmi Pikler"
+  },
+  {
+   "id": "KULiep9qZic",
+   "seg": 76,
+   "canal": "Stúdió Pikler",
+   "tema": "Emmi Pikler",
+   "idioma": "en",
+   "title": "PIKLER Vimeo trailer - Bathing the Baby"
+  },
+  {
+   "id": "qMi5itzFR2k",
+   "seg": 570,
+   "canal": "Pikler USA",
+   "tema": "Emmi Pikler",
+   "idioma": "en",
+   "title": "Pikler pedagogy and the importance of the gestures of our hands"
+  },
+  {
+   "id": "fC6XM3RFAFo",
+   "seg": 895,
+   "canal": "Hapa Family",
+   "tema": "Reggio Emilia",
+   "idioma": "en",
+   "title": "Montessori vs Reggio Emilia // Key Similarities & Differences"
+  },
+  {
+   "id": "tnbNNZBpXi0",
+   "seg": 197,
+   "canal": "Helpful Professor Explains!",
+   "tema": "Reggio Emilia",
+   "idioma": "en",
+   "title": "Reggio Emilia Approach (Explained for Beginners in 3 Minutes)"
+  },
+  {
+   "id": "7n2hCebmT4c",
+   "seg": 375,
+   "canal": "Sprouts",
+   "tema": "Reggio Emilia",
+   "idioma": "en",
+   "title": "Reggio Emilia Education"
+  },
+  {
+   "id": "0svs4F9TDwg",
+   "seg": 411,
+   "canal": "Kid To Kid Corner",
+   "tema": "Reggio Emilia",
+   "idioma": "en",
+   "title": "Reggio Emilia Inspired - Activities For Toddlers At Home"
+  },
+  {
+   "id": "mYEDTfl1hfE",
+   "seg": 1213,
+   "canal": "M de Carol",
+   "tema": "Reggio Emilia",
+   "idioma": "pt",
+   "title": "Tudo sobre a Pedagogia de Reggio Emilia: relação e escuta na primeira infância"
+  },
+  {
+   "id": "Z2CTr-5Bnsc",
+   "seg": 194,
+   "canal": "Nova Escola",
+   "tema": "Reggio Emilia",
+   "idioma": "pt",
+   "title": "Visita à creche inspirada em Reggio Emilia"
+  }
+ ]
+}

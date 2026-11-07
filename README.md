@@ -11,6 +11,9 @@ sequência sem salvar nada na conta. Quem dá o play é o Wilson, na TV ou pelo 
   pacote e os próximos dias. Tema sempre claro, paleta primária para criança de 2 anos, design derivado do
   sistema Noa Vale. Se o plano acabou, avisa que ele é renovado toda semana.
 - `plano.json`: gerado pelo script. Não editar à mão.
+- `pais.html`, `catalogo-pais.json` e `plano-pais.json`: a aba "Para os pais" (desde 07/11/2026): mesma página, mesmo motor, mas com
+  vídeos didáticos para adultos (Montessori, Emmi Pikler, Reggio Emilia), cerca de 20 min por dia. O catálogo dos pais
+  espelha a aba "Para os pais" do painel; o que vocês marcam lá não muda esta página sozinho.
 - `catalogo.json`: o catálogo inteiro (id, título, duração, canal), escolhido à mão com critério Montessori. É o núcleo do
   rodízio desde 07/11/2026; o canal Patati Patatá não é mais lido. No máximo 2 vídeos do mesmo canal por dia. Editar
   aqui para incluir ou tirar um vídeo.

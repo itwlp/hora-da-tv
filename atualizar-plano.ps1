@@ -10,7 +10,7 @@
 
   O plano.json anterior é passado ao script (--anterior) para o rodízio continuar de onde parou.
   Desde 07/11/2026 o núcleo é catalogo.json (vídeos escolhidos à mão, critério Montessori), com --sem-canal:
-  o canal Patati Patatá não é mais lido.
+  o canal Patati Patatá não é mais lido. Também gera plano-pais.json (catalogo-pais.json, ~20 min/dia) para a página pais.html.
 
   Para atualizar o histórico: exporte de novo as coleções do painel para dados\ (ver SKILL.md).
   Sem histórico novo o plano ainda funciona; só o ranking por afinidade fica um pouco defasado.
@@ -42,6 +42,9 @@ $dados = Join-Path $raiz 'dados'
 $saida = Join-Path $raiz 'saida'
 $destino = Join-Path $raiz 'plano.json'
 $extras = Join-Path $raiz 'catalogo.json'
+$extrasPais = Join-Path $raiz 'catalogo-pais.json'
+$saidaPais = Join-Path $raiz 'saida-pais'
+$destinoPais = Join-Path $raiz 'plano-pais.json'
 
 try {
     $env:PATH = [Environment]::GetEnvironmentVariable('PATH', 'User') + ';' + [Environment]::GetEnvironmentVariable('PATH', 'Machine')
@@ -60,12 +63,23 @@ try {
     Add-Registro 'plano' 'gerar' $(if ($p.dias.Count -eq $Dias -and $fora.Count -eq 0) { 'OK' } else { 'AVISO' }) "$($p.dias.Count) dias; $($fora.Count) fora de 52-68 min"
     if ($p.dias.Count -ne $Dias) { throw "plano com $($p.dias.Count) dias, esperado $Dias; nada publicado" }
 
+    # Plano "Para os pais": vídeos didáticos para adultos, ~20 min por dia, mesmo motor
+    if (Test-Path -LiteralPath $extrasPais) {
+        $outPais = & $py.Source -X utf8 $script --historico $dados --saida $saidaPais --dias $Dias --meta-min 20 --inicio $hoje --anterior $destinoPais --extras $extrasPais --sem-canal 2>&1
+        if ($LASTEXITCODE -ne 0) { Add-Registro 'plano-pais' 'gerar' 'ERRO' (($outPais | Select-Object -Last 2) -join ' ') }
+        else {
+            $pp = Get-Content -LiteralPath (Join-Path $saidaPais 'painel-plano.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+            Add-Registro 'plano-pais' 'gerar' 'OK' "$($pp.dias.Count) dias; $(($pp.dias | ForEach-Object { $_.total_min }) -join '/') min"
+            if ($PSCmdlet.ShouldProcess($destinoPais, 'gravar plano-pais.json')) { Copy-Item -LiteralPath (Join-Path $saidaPais 'painel-plano.json') -Destination $destinoPais -Force }
+        }
+    }
+
     $igual = (Test-Path -LiteralPath $destino) -and ((Get-FileHash -LiteralPath $novo).Hash -eq (Get-FileHash -LiteralPath $destino).Hash)
     if ($igual) { Add-Registro 'plano.json' 'gravar' 'IGUAL' 'sem mudanças' }
     elseif ($PSCmdlet.ShouldProcess($destino, 'gravar plano.json')) {
         Copy-Item -LiteralPath $novo -Destination $destino -Force
         Add-Registro 'plano.json' 'gravar' 'OK' $destino
-        & git -C $raiz add plano.json index.html 2>&1 | Out-Null
+        & git -C $raiz add plano.json index.html plano-pais.json pais.html 2>&1 | Out-Null
         & git -C $raiz commit -q -m "plano: semana de $hoje" 2>&1 | Out-Null
         Add-Registro 'git' 'commit' $(if ($LASTEXITCODE -eq 0) { 'OK' } else { 'AVISO' }) "código $LASTEXITCODE"
         if ($SemPush) { Add-Registro 'git' 'push' 'PULADO' '-SemPush' }
