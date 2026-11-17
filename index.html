@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#fffbe3">
+<title>Momento TV</title>
+<link rel="icon" href="icones/mt.svg" type="image/svg+xml">
+<link rel="icon" href="icones/mt-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icones/mt-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap">
+<!-- Estilo e script são comuns às duas páginas; ao mudar estilo.css ou pagina.js, aumente o ?v= nas duas -->
+<link rel="stylesheet" href="estilo.css?v=20261115b">
+</head>
+<body data-plano="plano.json" data-titulo="Momento TV de " data-meta="60" data-avaliar="https://claude.ai/artifact/XzqS7mqzaHzZkBcvkxbw5g">
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i><b class="sol"></b><b class="nuvem n1"></b><b class="nuvem n2"></b><b class="balao"></b><b class="flor"></b></div>
+<header class="site-header">
+  <a class="brand" href="./" aria-label="Momento TV, início">
+    <span class="brand-mark">mt<span class="dot">.</span></span>
+    <span class="brand-text">
+      <span class="brand-name">Momento TV</span>
+      <span class="brand-role mono">PLANO DA SEMANA</span>
+    </span>
+  </a>
+  <nav class="abas" aria-label="Seções">
+    <a href="./" aria-current="page">Meninos</a>
+    <a href="./pais.html">Para os pais</a>
+  </nav>
+  <span class="pill mono" id="data-pill" hidden></span>
+</header>
+
+<main class="wrap">
+  <section class="hero reveal">
+    <p class="ghost" aria-hidden="true">Momento TV</p>
+    <p class="mono tiny"><span class="accent">HOJE NA TV</span> / 1 HORA, SEM TRABALHO</p>
+    <h1 id="titulo">Momento TV de <em>hoje</em></h1>
+    <p class="sub" id="sub">Carregando o plano…</p>
+    <div class="scatter" aria-hidden="true"><span class="toy t1"></span><span class="toy t2"></span><span class="toy t3"></span><span class="toy t4"></span></div>
+  </section>
+
+  <section class="roda reveal" id="roda" hidden aria-label="Vídeos de hoje">
+    <div class="carousel"><div class="ring" id="ring"></div></div>
+    <div class="roda-foot">
+      <button class="chev" id="prev" aria-label="Vídeo anterior">&lsaquo;</button>
+      <p class="mono tiny"><span class="accent" id="cur-index">1</span> / <span id="cur-total">1</span> &nbsp; <span id="cur-title"></span></p>
+      <button class="chev" id="next" aria-label="Próximo vídeo">&rsaquo;</button>
+    </div>
+    <div class="steps" id="steps"></div>
+  </section>
+
+  <p class="dust" aria-hidden="true"><span>Hora de ver.</span><span>Hora de parar.</span></p>
+
+  <div class="brinq-area">
+    <div class="brinq-wrap"><button type="button" class="brinq" id="brinq" aria-label="Girar o brinquedo"></button></div>
+    <p class="mono tiny muted">TOQUE PARA GIRAR</p>
+  </div>
+
+  <div id="aviso" class="warn" hidden></div>
+
+  <section class="tcard reveal" id="hoje" hidden>
+    <a class="btn-discuss" id="tocar" href="#" target="_blank" rel="noopener"><span id="tocar-txt">Tocar o pacote de hoje</span><span class="btn-icon" aria-hidden="true">▶</span></a>
+    <ol id="lista"></ol>
+    <p class="meta" id="notas" hidden></p>
+    <p class="meta">Abra no app YouTube do celular e toque em transmitir para a TV. Desligue a reprodução automática no player para a fila parar no fim.</p>
+    <p class="meta">Depois, conte como foi: "gostaram" ou "não funcionou" em cada vídeo abre o painel da família para confirmar (só vocês têm acesso). O que não funcionou sai dos próximos planos.</p>
+  </section>
+
+  <section class="tcard reveal" id="proximos" hidden>
+    <details>
+      <summary>Próximos dias</summary>
+      <div id="dias" style="margin-top:14px"></div>
+    </details>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="mono tiny" id="rodape"></p>
+</footer>
+<script src="pagina.js?v=20261115b"></script>
+</body>
+</html>

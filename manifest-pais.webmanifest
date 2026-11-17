@@ -1,0 +1,16 @@
+{
+  "name": "Momento TV · Para os pais",
+  "short_name": "Para os pais",
+  "description": "Pacote diário de vídeos didáticos para os pais: Montessori, Emmi Pikler e Reggio Emilia.",
+  "lang": "pt-BR",
+  "start_url": "./pais.html",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#fffbe3",
+  "theme_color": "#fffbe3",
+  "icons": [
+    { "src": "icones/pais-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icones/pais-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icones/pais-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

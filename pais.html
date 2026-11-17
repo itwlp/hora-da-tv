@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#fffbe3">
+<title>Momento TV · Para os pais</title>
+<link rel="icon" href="icones/pais.svg" type="image/svg+xml">
+<link rel="icon" href="icones/pais-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icones/pais-180.png">
+<link rel="manifest" href="manifest-pais.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap">
+<!-- Estilo e script são comuns às duas páginas; ao mudar estilo.css ou pagina.js, aumente o ?v= nas duas -->
+<link rel="stylesheet" href="estilo.css?v=20261115b">
+<style>
+  /* Cores desta página: acento azul, cartões azuis, destaque verde */
+  :root{--card-edge:var(--blue);--accent:var(--blue);--accent-deep:#1f5fb0;--accent-soft:#cfe2fb;--em:var(--green)}
+</style>
+</head>
+<body data-plano="plano-pais.json" data-titulo="Para os pais, " data-meta="20" data-rodape="vídeos didáticos para adultos">
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i><b class="sol"></b><b class="nuvem n1"></b><b class="nuvem n2"></b><b class="balao"></b><b class="flor"></b></div>
+<header class="site-header">
+  <a class="brand" href="./" aria-label="Momento TV, início">
+    <span class="brand-mark">mt<span class="dot">.</span></span>
+    <span class="brand-text">
+      <span class="brand-name">Momento TV</span>
+      <span class="brand-role mono">PARA OS PAIS</span>
+    </span>
+  </a>
+  <nav class="abas" aria-label="Seções">
+    <a href="./">Meninos</a>
+    <a href="./pais.html" aria-current="page">Para os pais</a>
+  </nav>
+  <span class="pill mono" id="data-pill" hidden></span>
+</header>
+
+<main class="wrap">
+  <section class="hero reveal">
+    <p class="ghost" aria-hidden="true">Para os pais</p>
+    <p class="mono tiny"><span class="accent">PARA OS PAIS</span> / CERCA DE 20 MIN POR DIA</p>
+    <h1 id="titulo">Para os pais, <em>hoje</em></h1>
+    <p class="sub" id="sub">Carregando o plano…</p>
+  </section>
+
+  <section class="roda reveal" id="roda" hidden aria-label="Vídeos de hoje">
+    <div class="carousel"><div class="ring" id="ring"></div></div>
+    <div class="roda-foot">
+      <button class="chev" id="prev" aria-label="Vídeo anterior">&lsaquo;</button>
+      <p class="mono tiny"><span class="accent" id="cur-index">1</span> / <span id="cur-total">1</span> &nbsp; <span id="cur-title"></span></p>
+      <button class="chev" id="next" aria-label="Próximo vídeo">&rsaquo;</button>
+    </div>
+    <div class="steps" id="steps"></div>
+  </section>
+
+  <p class="dust" aria-hidden="true"><span>Hora de aprender.</span><span>Hora de praticar.</span></p>
+
+  <p class="meta" style="text-align:center;max-width:52ch;margin:0 auto">Vídeos didáticos para adultos sobre as abordagens Montessori, Emmi Pikler e Reggio Emilia. Para ver no celular ou no computador; não é conteúdo para a TV das crianças.</p>
+
+  <div id="aviso" class="warn" hidden></div>
+
+  <section class="tcard reveal" id="hoje" hidden>
+    <a class="btn-discuss" id="tocar" href="#" target="_blank" rel="noopener"><span id="tocar-txt">Tocar o pacote de hoje</span><span class="btn-icon" aria-hidden="true">▶</span></a>
+    <ol id="lista"></ol>
+    <p class="meta" id="notas" hidden></p>
+    <p class="meta">Abre uma fila no seu YouTube com os vídeos do dia, em sequência. Para marcar o que quer considerar, favoritar ou dispensar, use a aba "Para os pais" do <a href="https://claude.ai/artifact/XzqS7mqzaHzZkBcvkxbw5g#pais" target="_blank" rel="noopener" style="color:var(--accent-deep);font-weight:500">painel</a>.</p>
+  </section>
+
+  <section class="tcard reveal" id="proximos" hidden>
+    <details>
+      <summary>Próximos dias</summary>
+      <div id="dias" style="margin-top:14px"></div>
+    </details>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="mono tiny" id="rodape"></p>
+  <a class="mono tiny" style="color:inherit" href="https://claude.ai/artifact/XzqS7mqzaHzZkBcvkxbw5g#pais" target="_blank" rel="noopener">Avaliar no painel</a>
+</footer>
+<script src="pagina.js?v=20261115b"></script>
+</body>
+</html>
