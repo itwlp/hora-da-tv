@@ -12,7 +12,7 @@
 <link rel="manifest" href="manifest-pais.webmanifest">
 <link rel="preload" href="fontes/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Estilo e script são comuns às duas páginas; ao mudar estilo.css ou pagina.js, aumente o ?v= nas duas -->
-<link rel="stylesheet" href="estilo.css?v=20261122a">
+<link rel="stylesheet" href="estilo.css?v=20261122b">
 <style>
   /* Cores desta página: acento azul, cartões azuis, destaque verde */
   :root{--card-edge:var(--blue);--accent:var(--blue);--accent-deep:#1f5fb0;--accent-soft:#cfe2fb;--em:var(--green)}
@@ -43,14 +43,14 @@
     <p class="sub" id="sub">Carregando o plano…</p>
   </section>
 
-  <section class="roda reveal" id="roda" hidden aria-label="Vídeos de hoje">
+  <section class="roda reveal carregando" id="roda" aria-label="Vídeos de hoje" aria-busy="true">
     <div class="carousel"><div class="ring" id="ring"></div></div>
     <div class="roda-foot">
       <button class="chev" id="prev" aria-label="Vídeo anterior">&lsaquo;</button>
       <p class="mono tiny"><span class="accent" id="cur-index">1</span> / <span id="cur-total">1</span> &nbsp; <span id="cur-title"></span></p>
       <button class="chev" id="next" aria-label="Próximo vídeo">&rsaquo;</button>
     </div>
-    <div class="steps" id="steps"></div>
+    <div class="steps" id="steps"><button type="button" tabindex="-1" aria-hidden="true"><i></i>0:00</button></div>
   </section>
 
   <p class="dust" aria-hidden="true"><span>Hora de aprender.</span><span>Hora de praticar.</span></p>
@@ -78,6 +78,6 @@
   <p class="mono tiny" id="rodape"></p>
   <a class="mono tiny" style="color:inherit" href="https://claude.ai/artifact/XzqS7mqzaHzZkBcvkxbw5g#pais" target="_blank" rel="noopener">Avaliar no painel</a>
 </footer>
-<script src="pagina.js?v=20261115b"></script>
+<script src="pagina.js?v=20261122b"></script>
 </body>
 </html>

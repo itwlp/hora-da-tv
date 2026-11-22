@@ -15,7 +15,7 @@
   const PAPEL = {encerramento:'Tchau', ancora:'Da semana'};
   const papel = v => PAPEL[v.papel] ? ` <span class="tag">${PAPEL[v.papel]}</span>` : '';
   // Entrada ao rolar
-  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12}) : null;
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting && !e.target.classList.contains('carregando')){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12}) : null;
   document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
   // Inclinação 3D dos cartões (só com mouse; no toque fica estático)
   if(matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches){
@@ -56,7 +56,12 @@
   }
   function montaRoda(vids){
     rodaN = vids.length;
-    $('#roda').hidden = false;
+    const roda = $('#roda');
+    roda.hidden = false;
+    roda.classList.remove('carregando');
+    roda.removeAttribute('aria-busy');
+    // Volta a observar: a primeira leitura do observador dispara a entrada animada, como quando o carrossel saía do hidden.
+    if(io){ io.unobserve(roda); io.observe(roda); } else roda.classList.add('in');
     const larg = $('#ring').offsetWidth || 220;
     rodaR = Math.max(110, (larg / 2) / Math.tan(Math.PI / rodaN)) + 36;
     $('#cur-total').textContent = rodaN;
@@ -76,7 +81,7 @@
   function rodaAuto(vids){ clearInterval(rodaTimer); if(movimento) rodaTimer = setInterval(() => rodaMostra(rodaIdx + 1, vids), 4200); }
   fetch((cfg.plano || 'plano.json') + '?v=' + Date.now(), {cache:'no-store'}).then(r => r.json()).then(p => {
     const dias = (p.dias || []).filter(d => d.videos && d.videos.length);
-    if(!dias.length){ $('#sub').textContent = 'O plano está vazio. Peça para atualizar.'; return; }
+    if(!dias.length){ $('#roda').hidden = true; $('#sub').textContent = 'O plano está vazio. Peça para atualizar.'; return; }
     const hoje = chave(new Date());
     const futuros = dias.filter(d => d.data >= hoje);
     const d0 = futuros[0] || dias[dias.length-1];
@@ -105,5 +110,5 @@
     const ultimo = dias[dias.length-1].data;
     if(ultimo < hoje){ $('#aviso').textContent = 'O plano acabou em ' + dm(ultimo) + '. Ele é renovado toda semana; se ficou parado, o notebook estava desligado.'; $('#aviso').hidden = false; }
     $('#rodape').textContent = 'Plano gerado em ' + String(p.geradoEm || '').replace('T', ' ').slice(0, 16) + ' · meta ' + (p.metaMin || Number(cfg.meta) || 60) + ' min por dia · ' + (cfg.rodape || p.faixa || 'catálogo escolhido à mão');
-  }).catch(() => { $('#sub').textContent = 'Não consegui carregar o plano. Confira a internet e recarregue.'; });
+  }).catch(() => { $('#roda').hidden = true; $('#sub').textContent = 'Não consegui carregar o plano. Confira a internet e recarregue.'; });
 })();

@@ -12,7 +12,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preload" href="fontes/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Estilo e script são comuns às duas páginas; ao mudar estilo.css ou pagina.js, aumente o ?v= nas duas -->
-<link rel="stylesheet" href="estilo.css?v=20261122a">
+<link rel="stylesheet" href="estilo.css?v=20261122b">
 </head>
 <body data-plano="plano.json" data-titulo="Momento TV de " data-meta="60" data-avaliar="https://claude.ai/artifact/XzqS7mqzaHzZkBcvkxbw5g">
 <div class="bg" aria-hidden="true"><i></i><i></i><i></i><b class="sol"></b><b class="nuvem n1"></b><b class="nuvem n2"></b><b class="balao"></b><b class="flor"></b></div>
@@ -40,14 +40,14 @@
     <div class="scatter" aria-hidden="true"><span class="toy t1"></span><span class="toy t2"></span><span class="toy t3"></span><span class="toy t4"></span></div>
   </section>
 
-  <section class="roda reveal" id="roda" hidden aria-label="Vídeos de hoje">
+  <section class="roda reveal carregando" id="roda" aria-label="Vídeos de hoje" aria-busy="true">
     <div class="carousel"><div class="ring" id="ring"></div></div>
     <div class="roda-foot">
       <button class="chev" id="prev" aria-label="Vídeo anterior">&lsaquo;</button>
       <p class="mono tiny"><span class="accent" id="cur-index">1</span> / <span id="cur-total">1</span> &nbsp; <span id="cur-title"></span></p>
       <button class="chev" id="next" aria-label="Próximo vídeo">&rsaquo;</button>
     </div>
-    <div class="steps" id="steps"></div>
+    <div class="steps" id="steps"><button type="button" tabindex="-1" aria-hidden="true"><i></i>0:00</button></div>
   </section>
 
   <p class="dust" aria-hidden="true"><span>Hora de ver.</span><span>Hora de parar.</span></p>
@@ -78,6 +78,6 @@
 <footer class="site-footer">
   <p class="mono tiny" id="rodape"></p>
 </footer>
-<script src="pagina.js?v=20261115b"></script>
+<script src="pagina.js?v=20261122b"></script>
 </body>
 </html>

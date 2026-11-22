@@ -218,6 +218,8 @@ ol li:hover{padding-left:8px}
 }
 /* ---- Efeitos do Noa Vale: roda 3D, dust, objetos soltos, passos ---- */
 .roda{display:flex;flex-direction:column;gap:14px}
+/* Enquanto o plano carrega, o carrossel ocupa o espaco dele, invisivel: o que vem abaixo nao pula quando ele aparece. */
+.roda.carregando{visibility:hidden}
 .carousel{position:relative;height:340px;perspective:1200px;perspective-origin:50% 40%}
 .ring{position:absolute;inset:0;margin:auto;width:220px;height:280px;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.22,.8,.2,1)}
 .vcard{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:18px;border-radius:24px;border:6px solid #fff;background:var(--c);color:#fff;box-shadow:var(--shadow);backface-visibility:hidden;transform:rotateY(var(--a)) translateZ(var(--r))}
