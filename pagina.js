@@ -9,8 +9,14 @@
   const chave = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
   const nome = iso => { const p = iso.split('-').map(Number); return new Date(p[0], p[1]-1, p[2]).toLocaleDateString('pt-BR', {weekday:'long'}); };
   const dm = iso => iso.slice(8) + '/' + iso.slice(5,7);
-  const pacote = d => 'https://www.youtube.com/watch_videos?video_ids=' + d.videos.map(v => encodeURIComponent(v.id)).join(',');
-  const curto = t => String(t).replace(/^Patati Patatá\s*[-–]?\s*/, '');
+  // Links e números saem do id validado e de Number(), nunca direto do plano: mesmo um plano.json alterado não muda
+  // o destino dos links nem injeta marcação (revisão de 26/11/2026).
+  const ID = /^[A-Za-z0-9_-]{11}$/;
+  const idOk = v => ID.test(String(v.id));
+  const yt = v => idOk(v) ? 'https://www.youtube.com/watch?v=' + v.id : '#';
+  const num = x => Number.isFinite(Number(x)) ? Number(x) : 0;
+  const pacote = d => 'https://www.youtube.com/watch_videos?video_ids=' + d.videos.filter(idOk).map(v => v.id).join(',');
+  const titulo = t => String(t);
   // Papel do vídeo no dia (campo "papel" do plano): o encerramento fecha todo dia; a âncora repete na semana de propósito
   const PAPEL = {encerramento:'Tchau', ancora:'Da semana'};
   const papel = v => PAPEL[v.papel] ? ` <span class="tag">${PAPEL[v.papel]}</span>` : '';
@@ -51,7 +57,7 @@
     rodaIdx = (i + rodaN) % rodaN;
     $('#ring').style.transform = `translateZ(${-rodaR}px) rotateY(${-rodaIdx * 360 / rodaN}deg)`;
     $('#cur-index').textContent = rodaIdx + 1;
-    $('#cur-title').textContent = curto(vids[rodaIdx].title);
+    $('#cur-title').textContent = titulo(vids[rodaIdx].title);
     document.querySelectorAll('#steps button').forEach((b, k) => b.classList.toggle('active', k === rodaIdx));
   }
   function montaRoda(vids){
@@ -67,7 +73,7 @@
     $('#cur-total').textContent = rodaN;
     $('#ring').innerHTML = vids.map((v, k) => {
       const amarelo = k % 4 === 3;
-      return `<a class="vcard${amarelo ? ' y' : ''}" href="${esc(v.url)}" target="_blank" rel="noopener" style="--c:${CORES[k % 4]};--a:${k * 360 / rodaN}deg;--r:${rodaR}px"><span class="go" aria-hidden="true">▶</span><span class="n">${k + 1}</span><span><h3>${esc(curto(v.title))}</h3><span class="d">${esc(v.duracao)}${v.tema ? ' · ' + esc(v.tema) : ''}${papel(v)}</span></span></a>`;
+      return `<a class="vcard${amarelo ? ' y' : ''}" href="${esc(yt(v))}" target="_blank" rel="noopener" style="--c:${CORES[k % 4]};--a:${k * 360 / rodaN}deg;--r:${rodaR}px"><span class="go" aria-hidden="true">▶</span><span class="n">${k + 1}</span><span><h3>${esc(titulo(v.title))}</h3><span class="d">${esc(v.duracao)}${v.tema ? ' · ' + esc(v.tema) : ''}${papel(v)}</span></span></a>`;
     }).join('');
     $('#steps').innerHTML = vids.map((v, k) => `<button type="button" style="--c:${CORES[k % 4]};--w:${minutos(v.duracao).toFixed(2)}" aria-label="Ir ao vídeo ${k + 1}"><i></i>${esc(v.duracao)}</button>`).join('');
     document.querySelectorAll('#steps button').forEach((b, k) => b.addEventListener('click', () => { rodaMostra(k, vids); rodaAuto(vids); }));
@@ -87,15 +93,15 @@
     const d0 = futuros[0] || dias[dias.length-1];
     const ehHoje = d0.data === hoje;
     $('#titulo').innerHTML = esc(cfg.titulo || 'Momento TV de ') + '<em>' + (ehHoje ? 'hoje' : esc(nome(d0.data))) + '</em>';
-    $('#sub').textContent = nome(d0.data) + ', ' + dm(d0.data) + ' · ' + d0.videos.length + ' vídeos · ' + d0.total_min + ' min';
-    $('#data-pill').textContent = dm(d0.data) + ' · ' + d0.total_min + ' MIN';
+    $('#sub').textContent = nome(d0.data) + ', ' + dm(d0.data) + ' · ' + d0.videos.length + ' vídeos · ' + num(d0.total_min) + ' min';
+    $('#data-pill').textContent = dm(d0.data) + ' · ' + num(d0.total_min) + ' MIN';
     $('#data-pill').hidden = false;
     $('#tocar').href = pacote(d0);
     $('#tocar-txt').textContent = 'Tocar o pacote de ' + (ehHoje ? 'hoje' : nome(d0.data));
     const info = v => { const t = [v.tema, v.canal].filter(Boolean).map(esc).join(' · '); return t ? `<span class="meta">${t}</span>` : ''; };
-    const avaliar = (v, voto) => cfg.avaliar + '#avaliar?id=' + encodeURIComponent(v.id) + '&voto=' + voto + '&t=' + encodeURIComponent(curto(v.title));
+    const avaliar = (v, voto) => cfg.avaliar + '#avaliar?id=' + encodeURIComponent(v.id) + '&voto=' + voto + '&t=' + encodeURIComponent(titulo(v.title));
     const votos = v => cfg.avaliar ? `<span class="votos"><a href="${esc(avaliar(v, 'gostou'))}" target="_blank" rel="noopener">gostaram</a> · <a href="${esc(avaliar(v, 'nao'))}" target="_blank" rel="noopener">não funcionou</a></span>` : '';
-    $('#lista').innerHTML = d0.videos.map((v, i) => `<li style="--i:${i}"><span class="li-txt"><span><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(curto(v.title))}</a>${papel(v)}</span>${info(v)}${votos(v)}</span><span class="dur">${esc(v.duracao)}</span></li>`).join('');
+    $('#lista').innerHTML = d0.videos.map((v, i) => `<li style="--i:${i}"><span class="li-txt"><span><a href="${esc(yt(v))}" target="_blank" rel="noopener">${esc(titulo(v.title))}</a>${papel(v)}</span>${info(v)}${votos(v)}</span><span class="dur">${esc(v.duracao)}</span></li>`).join('');
     const notas = [];
     if(d0.videos.some(v => v.papel === 'ancora')) notas.push('O vídeo "da semana" volta em alguns dias de propósito: rever o mesmo vídeo ajuda a criança a aprender as palavras.');
     if(d0.videos.some(v => v.papel === 'encerramento')) notas.push('O último vídeo é sempre o mesmo: é o sinal de que a TV acabou.');
@@ -104,7 +110,7 @@
     montaRoda(d0.videos);
     const resto = futuros.slice(1);
     if(resto.length){
-      $('#dias').innerHTML = resto.map(d => `<div class="dia"><a class="p" href="${esc(pacote(d))}" target="_blank" rel="noopener">▶ Pacote de ${esc(nome(d.data))} (${esc(dm(d.data))}) · ${d.total_min} min</a><p class="meta">${d.videos.map(v => esc(curto(v.title))).join(' · ')}</p></div>`).join('');
+      $('#dias').innerHTML = resto.map(d => `<div class="dia"><a class="p" href="${esc(pacote(d))}" target="_blank" rel="noopener">▶ Pacote de ${esc(nome(d.data))} (${esc(dm(d.data))}) · ${num(d.total_min)} min</a><p class="meta">${d.videos.map(v => esc(titulo(v.title))).join(' · ')}</p></div>`).join('');
       $('#proximos').hidden = false;
     }
     const ultimo = dias[dias.length-1].data;
